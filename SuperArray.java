@@ -23,8 +23,8 @@ public class SuperArray{
     return theSize;
   }
 
-  public boolean add(String value){
-    data[size]=value;
+  public boolean add(String element){
+    data[size]=element;
     size++;
     return true;
   }
@@ -34,13 +34,32 @@ public class SuperArray{
   }
 
   public String toString(){
-    String stringofvalues="";
+    String stringofelements="";
     for (int i=0;i<data.length-1;i++)
     {
-      stringofvalues+=(data[i]+", ");
+      stringofelements+=(data[i]+", ");
     }
-    stringofvalues+=(data[data.length-1]+"]");
-    return stringofvalues;
+    stringofelements+=(data[data.length-1]+"]");
+    return stringofelements;
+  }
+
+  public String get(int index){
+    if(index<0||index>=size)
+    {
+      return "error: index is out of range";
+    }
+    return data[index];
+  }
+
+  public String set(int index, String element){
+    String prevElement;
+    if(index<0||index>=size)
+    {
+      return "error: index is out of range";
+    }
+    prevElement=data[index];
+    data[index]=element;
+    return prevElement;
   }
 
 
