@@ -43,6 +43,10 @@ public class SuperArray{
     return stringofelements;
   }
 
+  public String toStringDebug(){
+    
+  }
+
   public String get(int index){
     if(index<0||index>=size)
     {
