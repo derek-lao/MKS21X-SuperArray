@@ -23,6 +23,12 @@ public class SuperArray{
     return theSize;
   }
 
+  public boolean add(String value){
+    data[size]=value;
+    size++;
+    return true;
+  }
+
   public boolean isEmpty(){
     return this.size()==0;
   }
