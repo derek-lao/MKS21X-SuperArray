@@ -89,7 +89,13 @@ public class SuperArray{
   }
 
   boolean contains(String target){
-
+    boolean answer=false;
+    for(int i=0;i<data.length;i++)
+    if(data[i]==target)
+    {
+      answer=true;
+    }
+    return answer;
   }
 
 
