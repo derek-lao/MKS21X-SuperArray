@@ -43,9 +43,22 @@ public class SuperArray{
     return stringofelements;
   }
 
-  // public String toStringDebug(){
-  //
-  // }
+  public String toStringDebug(){
+    String stringofelements="";
+    for (int i=0;i<data.length-1;i++)
+    {
+      if (data[i]!=null)
+      {
+        stringofelements+=(data[i]+", ");
+      }
+      else
+      {
+        stringofelements+=(null+", ");
+      }
+    }
+    stringofelements+=(data[data.length-1]+"]");
+    return stringofelements;
+  }
 
   public String get(int index){
     if(index<0||index>=size)
@@ -68,11 +81,16 @@ public class SuperArray{
 
   private void resize(){
     String[] prevarray=data;
-    data=new String[size+10];
+    data=new String[size*2+1];
     for(int i=0;i<prevarray.length;i++)
     {
       data[i]=prevarray[i];
     }
   }
+
+  boolean contains(String target){
+
+  }
+
 
 }
