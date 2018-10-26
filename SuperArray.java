@@ -43,9 +43,9 @@ public class SuperArray{
     return stringofelements;
   }
 
-  public String toStringDebug(){
-
-  }
+  // public String toStringDebug(){
+  //
+  // }
 
   public String get(int index){
     if(index<0||index>=size)
@@ -66,6 +66,13 @@ public class SuperArray{
     return prevElement;
   }
 
-
+  private void resize(){
+    String[] prevarray=data;
+    data=new String[size+10];
+    for(int i=0;i<prevarray.length;i++)
+    {
+      data[i]=prevarray[i];
+    }
+  }
 
 }
