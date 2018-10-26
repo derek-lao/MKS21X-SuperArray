@@ -44,13 +44,13 @@ public class SuperArray{
   }
 
   public String toStringDebug(){
-    
+
   }
 
   public String get(int index){
     if(index<0||index>=size)
     {
-      return "error: index is out of range";
+      return null;
     }
     return data[index];
   }
@@ -59,7 +59,7 @@ public class SuperArray{
     String prevElement;
     if(index<0||index>=size)
     {
-      return "error: index is out of range";
+      return null;
     }
     prevElement=data[index];
     data[index]=element;
