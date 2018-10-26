@@ -98,5 +98,36 @@ public class SuperArray{
     return answer;
   }
 
+  int indexOf(String target){
+    int answer=size;
+    for(int i=0;i<answer;i++)
+    {
+      if(data[i]==target)
+      {
+        answer=i;
+      }
+    }
+    if (answer==size)
+    {
+      answer=-1;
+    }
+    return answer;
+  }
+
+  // ALTERENATE METHOD FOR indexOf THAT USES BREAK.
+  // I TRIED TO NOT USE BREAK IN THE PREVIOUS VERSION OF THE CODE
+  // int indexOf(String target){
+  //   int answer=-1;
+  //   for(int i=0;i<size;i++)
+  //   {
+  //     if(data[i]==target)
+  //     {
+  //       answer=i;
+  //       break;
+  //     }
+  //   }
+  //   return answer;
+  // }
+
 
 }
