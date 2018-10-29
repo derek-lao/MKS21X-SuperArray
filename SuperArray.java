@@ -45,7 +45,7 @@ public class SuperArray{
   }
 
   public String toString(){
-    String stringofelements="";
+    String stringofelements="[";
     for (int i=0;i<data.length-1;i++)
     {
       stringofelements+=(data[i]+", ");
