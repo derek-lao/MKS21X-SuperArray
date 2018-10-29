@@ -88,21 +88,22 @@ public class SuperArray{
     }
   }
 
-  boolean contains(String target){
+  public boolean contains(String target){
     boolean answer=false;
     for(int i=0;i<data.length;i++)
-    if(data[i]==target)
+    if(data[i].equals(target))
     {
       answer=true;
     }
     return answer;
   }
 
-  int indexOf(String target){
+  public int indexOf(String target){
+    //method without break
     int answer=size;
     for(int i=0;i<answer;i++)
     {
-      if(data[i]==target)
+      if(data[i].equals(target))
       {
         answer=i;
       }
@@ -116,11 +117,43 @@ public class SuperArray{
 
   // ALTERENATE METHOD FOR indexOf THAT USES BREAK.
   // I TRIED TO NOT USE BREAK IN THE PREVIOUS VERSION OF THE CODE
-  // int indexOf(String target){
+  // public int indexOf(String element){
   //   int answer=-1;
   //   for(int i=0;i<size;i++)
   //   {
-  //     if(data[i]==target)
+  //     if(data[i].equals(element))
+  //     {
+  //       answer=i;
+  //       break;
+  //     }
+  //   }
+  //   return answer;
+  // }
+
+  public int lastIndexOf(String element){
+    //method without break
+    int answer=-1;
+    for(int i=size;i>answer;i-=1)
+    {
+      if(data[i].equals(element))
+      {
+        answer=i;
+      }
+      if (answer==size)
+      {
+        answer=-1;
+      }
+    }
+    return answer;
+  }
+
+  // ALTERENATE METHOD FOR lastIndexOf THAT USES BREAK.
+  // I TRIED TO NOT USE BREAK IN THE PREVIOUS VERSION OF THE CODE
+  // public int lastIndexOf(String element){
+  //   int answer=-1;
+  //   for(int i=0;i>size;i-=1)
+  //   {
+  //     if(data[i].equals(element))
   //     {
   //       answer=i;
   //       break;
