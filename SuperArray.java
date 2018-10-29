@@ -179,6 +179,20 @@ public class SuperArray{
     }
   }
 
+  publc String remove(int index){
+    String[] afterarray=new String[size-1];
+    String[] beforearray=new String[size-1];
+    for(int i=0;i<index-1;i++)
+    {
+      beforearray[i]=data[i];
+    }
+    for(int i=index+1;i<size;i++)
+    {
+      beforearray[i-index-1]=data[i];
+    }
+    size=size-1;
+
+  }
 
 
 
