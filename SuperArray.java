@@ -164,6 +164,10 @@ public class SuperArray{
 
   public void add(int index,String element){
     String[] listafter=new String[size+1];
+    if (index < 0 || index > size())
+    {
+      System.out.println("Error: Index is out of range");
+    }
     for(int i=index;i<size;i++)
     {
       listafter[i-index]=data[i];
