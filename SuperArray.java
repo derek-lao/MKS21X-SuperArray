@@ -172,28 +172,44 @@ public class SuperArray{
     {
       listafter[i-index]=data[i];
     }
-    add(element);
+    this.add(element);
     for(int i=index+1;i<size;i++)
     {
       data[i]=listafter[i-index-1];
     }
   }
 
-  publc String remove(int index){
-    String[] afterarray=new String[size-1];
+  public String remove(int index){
     String[] beforearray=new String[size-1];
+    String[] afterarray=new String[size-1];
+    String outcast=data[index];
+    if(index < 0 || index >= size())
+    {
+      return null;
+    }
     for(int i=0;i<index-1;i++)
     {
       beforearray[i]=data[i];
     }
     for(int i=index+1;i<size;i++)
     {
-      beforearray[i-index-1]=data[i];
+      afterarray[i-index-1]=data[i];
     }
     size=size-1;
-
+    for(int i=0;i<index-1;i++)
+    {
+      this.add(beforearray[i]);
+    }
+    for(int i=index-1;i<size;i++)
+    {
+      this.add(afterarray[i-(index-1)]);
+    }
+    return outcast;
   }
 
+  public boolean remove(String element){
+
+  }
 
 
 }
