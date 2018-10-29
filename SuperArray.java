@@ -162,5 +162,20 @@ public class SuperArray{
   //   return answer;
   // }
 
+  public void add(int index,String element){
+    String[] listafter=new String[size+1];
+    for(int i=index;i<size;i++)
+    {
+      listafter[i-index]=data[i];
+    }
+    add(element);
+    for(int i=index+1;i<size;i++)
+    {
+      data[i]=listafter[i-index-1];
+    }
+  }
+
+
+
 
 }
