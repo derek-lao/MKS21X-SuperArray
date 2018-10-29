@@ -35,8 +35,11 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    size++;
+    System.out.println("The size is now: "+size);
+    System.out.println("Thee element is: "+element);
     data[size]=element;
+    System.out.println("After adding the element is still: "+element);
+    size++;
     return true;
   }
 
