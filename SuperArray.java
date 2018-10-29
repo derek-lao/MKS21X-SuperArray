@@ -35,8 +35,8 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    data[size]=element;
     size++;
+    data[size]=element;
     return true;
   }
 
