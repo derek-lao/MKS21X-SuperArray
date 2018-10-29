@@ -72,6 +72,13 @@ public class SuperArray{
   }
 
   public String get(int index){
+    if (index < 0 || index > size())
+    // {
+    //   System.out.println("Error: Index is out of range");
+    // }
+    {
+      throw new IndexOutOfBoundsException();
+    }
     if(index<0||index>=size)
     {
       return null;
@@ -80,6 +87,13 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
+    if (index < 0 || index > size())
+    // {
+    //   System.out.println("Error: Index is out of range");
+    // }
+    {
+      throw new IndexOutOfBoundsException();
+    }
     String prevElement;
     if(index<0||index>=size)
     {
@@ -176,8 +190,11 @@ public class SuperArray{
   public void add(int index,String element){
     String[] listafter=new String[size+1];
     if (index < 0 || index > size())
+    // {
+    //   System.out.println("Error: Index is out of range");
+    // }
     {
-      System.out.println("Error: Index is out of range");
+      throw new IndexOutOfBoundsException();
     }
     for(int i=index;i<size;i++)
     {
@@ -191,6 +208,13 @@ public class SuperArray{
   }
 
   public String remove(int index){
+    if (index < 0 || index > size())
+    // {
+    //   System.out.println("Error: Index is out of range");
+    // }
+    {
+      throw new IndexOutOfBoundsException();
+    }
     String[] beforearray=new String[size-1];
     String[] afterarray=new String[size-1];
     String outcast=data[index];
