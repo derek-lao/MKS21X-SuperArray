@@ -208,7 +208,15 @@ public class SuperArray{
   }
 
   public boolean remove(String element){
-
+    if(indexOf(element)>-1)
+    {
+      this.remove(element);
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
 
