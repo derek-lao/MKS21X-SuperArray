@@ -55,7 +55,7 @@ public class SuperArray{
   }
 
   public String toStringDebug(){
-    String stringofelements="";
+    String stringofelements="[";
     for (int i=0;i<data.length-1;i++)
     {
       if (data[i]!=null)
