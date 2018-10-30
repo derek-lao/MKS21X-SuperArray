@@ -5,6 +5,7 @@ public class SuperArray{
 
   public SuperArray(){
     data=new String[10];
+    //System.out.println("The data.length is currently: "+data.length);
   }
 
   public SuperArray(int startingCapacity){
@@ -35,10 +36,15 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    System.out.println("The size is now: "+size);
-    System.out.println("Thee element is: "+element);
+    // System.out.println("The size is now: "+size);
+    // System.out.println("The data.length is now: "+data.length);
+    // System.out.println("The element is: "+element);
+    if (data.length==size)
+    {
+      this.resize();
+    }
     data[size]=element;
-    System.out.println("After adding the element is still: "+element);
+    // System.out.println("After adding the element is still: "+element);
     size++;
     return true;
   }
