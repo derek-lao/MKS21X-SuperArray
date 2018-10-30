@@ -209,6 +209,7 @@ public class SuperArray{
   // }
 
   public void add(int index,String element){
+    String[] beforearray=new String[size];
     String[] listafter=new String[size+1];
     if (index < 0 || index > size())
     // {
@@ -221,7 +222,7 @@ public class SuperArray{
     {
       listafter[i-index]=data[i];
     }
-    this.add(element);
+    data[index]=element;
     for(int i=index+1;i<size;i++)
     {
       data[i]=listafter[i-index-1];

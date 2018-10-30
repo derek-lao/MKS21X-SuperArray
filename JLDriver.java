@@ -152,7 +152,7 @@ public class JLDriver {
     System.out.println(SA.remove("ASD"));
 
     System.out.println();
-    
+
     System.out.println("Testing clear() ... Expected : SA should be []");
     SA.clear();
     System.out.println(SA);
