@@ -5,6 +5,7 @@ public class SuperArray{
 
   public SuperArray(){
     data=new String[10];
+    size=0;
     //System.out.println("The data.length is currently: "+data.length);
   }
 
@@ -36,16 +37,18 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    // System.out.println("The size is now: "+size);
-    // System.out.println("The data.length is now: "+data.length);
-    // System.out.println("The element is: "+element);
+
+    // System.out.println("My size is: "+size);
+    // System.out.println("My data.length is: "+data.length);
     if (data.length==size)
     {
       this.resize();
     }
+    data[size]=element;
+
     size++;
-    data[size-1]=element;
-    // System.out.println("After adding the element is still: "+element);
+    // System.out.println("My size is now: "+size);
+    // System.out.println("My data.length is now: "+data.length);
     return true;
   }
 
@@ -55,11 +58,11 @@ public class SuperArray{
 
   public String toString(){
     String stringofelements="[";
-    for (int i=0;i<size-1;i++)
+    for (int i=0;i<size()-1;i++)
     {
       stringofelements+=(data[i]+", ");
     }
-    stringofelements+=(data[size-1]+"]");
+    stringofelements+=(data[size()-1]+"]");
     return stringofelements;
   }
 
@@ -105,7 +108,7 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
-    if (index < 0 || index >= size())
+    if (index < 0 || index >= size)
     // {
     //   System.out.println("Error: Index is out of range");
     // }
@@ -133,13 +136,7 @@ public class SuperArray{
   }
 
   public boolean contains(String target){
-    boolean answer=false;
-    for(int i=0;i<data.length;i++)
-    if(data[i].equals(target))
-    {
-      answer=true;
-    }
-    return answer;
+    return indexOf(target)!=-1;
   }
 
   public int indexOf(String target){
@@ -175,20 +172,14 @@ public class SuperArray{
   // }
 
   public int lastIndexOf(String element){
-    //method without break
-    int answer=-1;
-    for(int i=size;i>answer;i-=1)
+    for(int i=size-1;i>-1;i-=1)
     {
-      if(data[i].equals(element))
+      if (data[i].equals(element))
       {
-        answer=i;
-      }
-      if (answer==size)
-      {
-        answer=-1;
+        return i;
       }
     }
-    return answer;
+    return -1;
   }
 
   // ALTERENATE METHOD FOR lastIndexOf THAT USES BREAK.
@@ -208,6 +199,8 @@ public class SuperArray{
 
   public void add(int index, String element){
     String[] listafter=new String[size];
+    // System.out.println("My size is: "+size);
+    // System.out.println("My data.length is: "+data.length);
     if (index < 0 || index > size)
     // {
     //   System.out.println("Error: Index is out of range");
@@ -215,62 +208,61 @@ public class SuperArray{
     {
       throw new IndexOutOfBoundsException();
     }
-    for(int i=index;i<size;i++)
+    else
     {
-      listafter[i-index]=data[i];
+      if(size==data.length)
+      {
+        resize();
+      }
+      for(int i=size;i>index;i-=1)
+      {
+        data[i]=data[i-1];
+      }
+      data[index]=element;
+      size++;
     }
-    data[index]=element;
-    for(int i=index+1;i<size;i++)
-    {
-      data[i]=listafter[i-index-1];
-    }
+    // System.out.println("My size is now: "+size);
+    // System.out.println("My data.length is now: "+data.length);
   }
 
   public String remove(int index){
-    if (index < 0 || index >= size())
+    String answer=data[index];
+    if (index < 0 || index >= size)
     // {
     //   System.out.println("Error: Index is out of range");
     // }
     {
       throw new IndexOutOfBoundsException();
     }
-    String[] beforearray=new String[size-1];
-    String[] afterarray=new String[size-1];
-    String outcast=data[index];
-    if(index < 0 || index >= size())
+    else
     {
-      return null;
+      for (int i=index;i<size;i++)
+      {
+        if(i==size-1)
+        {
+          data[i]=null;
+        }
+        else
+        {
+          data[i]=data[i+1];
+        }
+      }
     }
-    for(int i=0;i<index-1;i++)
-    {
-      beforearray[i]=data[i];
-    }
-    for(int i=index+1;i<size;i++)
-    {
-      afterarray[i-index-1]=data[i];
-    }
-    size=size-1;
-    for(int i=0;i<index-1;i++)
-    {
-      this.add(beforearray[i]);
-    }
-    for(int i=index-1;i<size;i++)
-    {
-      this.add(afterarray[i-(index-1)]);
-    }
-    return outcast;
+    size-=1;
+    return answer;
   }
 
   public boolean remove(String element){
-    if(indexOf(element)>-1)
+    for(int i=0;i<size;i++)
     {
-      this.remove(element);
-      return true;
+      if (data[i].equals(element))
+      {
+        remove(i);
+        return true;
+      }
     }
-    else
-    {
-      return false;
-    }
+    size-=1;
+    return false;
   }
 
 
