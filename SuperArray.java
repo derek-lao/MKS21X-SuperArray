@@ -32,8 +32,6 @@ public class SuperArray{
         theSize++;
       }
     }
-    System.out.println("My size is: "+theSize);
-    System.out.println("My data.length is: "+data.length);
     return theSize;
   }
 
@@ -45,9 +43,9 @@ public class SuperArray{
     {
       this.resize();
     }
-    data[size]=element;
-    // System.out.println("After adding the element is still: "+element);
     size++;
+    data[size-1]=element;
+    // System.out.println("After adding the element is still: "+element);
     return true;
   }
 
@@ -57,11 +55,11 @@ public class SuperArray{
 
   public String toString(){
     String stringofelements="[";
-    for (int i=0;i<data.length-1;i++)
+    for (int i=0;i<size-1;i++)
     {
       stringofelements+=(data[i]+", ");
     }
-    stringofelements+=(data[data.length-1]+"]");
+    stringofelements+=(data[size-1]+"]");
     return stringofelements;
   }
 
@@ -208,10 +206,9 @@ public class SuperArray{
   //   return answer;
   // }
 
-  public void add(int index,String element){
-    String[] beforearray=new String[size];
-    String[] listafter=new String[size+1];
-    if (index < 0 || index > size())
+  public void add(int index, String element){
+    String[] listafter=new String[size];
+    if (index < 0 || index > size)
     // {
     //   System.out.println("Error: Index is out of range");
     // }
