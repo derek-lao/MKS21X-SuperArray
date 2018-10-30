@@ -9,14 +9,14 @@ public class SuperArray{
   }
 
   public SuperArray(int startingCapacity){
-    if(startingCapacity==0)
-    {
-      data=new String[startingCapacity*2+1];
-    }
-    else
-    {
+    // if(startingCapacity==0)
+    // {
+    //   data=new String[startingCapacity*2+1];
+    // }
+    // else
+    // {
       data=new String[startingCapacity];
-    }
+    // }
   }
 
   public void clear(){
@@ -32,6 +32,8 @@ public class SuperArray{
         theSize++;
       }
     }
+    System.out.println("My size is: "+theSize);
+    System.out.println("My data.length is: "+data.length);
     return theSize;
   }
 
@@ -64,24 +66,33 @@ public class SuperArray{
   }
 
   public String toStringDebug(){
+
     String stringofelements="[";
-    for (int i=0;i<data.length-1;i++)
+    for (int i=0;i<data.length;i++)
     {
       if (data[i]!=null)
       {
-        stringofelements+=(data[i]+", ");
+        stringofelements+=(data[i]+"");
+        if (i != data.length-1)
+        {
+          stringofelements+=", ";
+        }
       }
-      else
+      if (data[i]==null)
       {
-        stringofelements+=(null+", ");
+        stringofelements+=(null+"");
+        if (i != data.length-1)
+        {
+          stringofelements+=", ";
+        }
       }
     }
-    stringofelements+=(data[data.length-1]+"]");
+    stringofelements+="]";
     return stringofelements;
   }
 
   public String get(int index){
-    if (index < 0 || index > size())
+    if (index < 0 || index >= size())
     // {
     //   System.out.println("Error: Index is out of range");
     // }
@@ -96,7 +107,7 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
-    if (index < 0 || index > size())
+    if (index < 0 || index >= size())
     // {
     //   System.out.println("Error: Index is out of range");
     // }
@@ -116,6 +127,7 @@ public class SuperArray{
   private void resize(){
     String[] prevarray=data;
     data=new String[size*2+1];
+
     for(int i=0;i<prevarray.length;i++)
     {
       data[i]=prevarray[i];
@@ -217,7 +229,7 @@ public class SuperArray{
   }
 
   public String remove(int index){
-    if (index < 0 || index > size())
+    if (index < 0 || index >= size())
     // {
     //   System.out.println("Error: Index is out of range");
     // }
