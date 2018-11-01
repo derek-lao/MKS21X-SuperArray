@@ -16,6 +16,10 @@ public class SuperArray{
     // }
     // else
     // {
+      if (startingCapacity<0)
+      {
+        throw new IllegalArgumentException();
+      }
       data=new String[startingCapacity];
     // }
   }
